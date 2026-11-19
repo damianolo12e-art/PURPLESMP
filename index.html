@@ -1,0 +1,313 @@
+
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PURPLESMP | Lifesteal</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  --purple: #a855f7;
+  --dark: #090710;
+  --panel: #151020;
+  --text: #f5efff;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--dark);
+  color: var(--text);
+  font-family: Inter, sans-serif;
+}
+
+nav {
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8%;
+  background: #0c0913;
+  border-bottom: 1px solid #241532;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  font-size: 23px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.logo span { color: var(--purple); }
+
+nav a {
+  color: #c8bdd7;
+  text-decoration: none;
+  margin-left: 28px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+nav a:hover { color: white; }
+
+.hero {
+  min-height: 650px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 70px 20px;
+  background:
+    radial-gradient(ellipse at 50% 40%, #54218b55, transparent 60%),
+    linear-gradient(180deg, #100a1b, #090710);
+}
+
+.tag {
+  border: 1px solid #8041bd;
+  color: #d5aaff;
+  padding: 9px 18px;
+  border-radius: 30px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: 800;
+}
+
+.hero h1 {
+  font-size: clamp(55px, 10vw, 105px);
+  font-weight: 900;
+  letter-spacing: -5px;
+  margin: 25px 0 12px;
+  text-shadow: 0 0 45px #a855f777;
+}
+
+.hero h1 span { color: var(--purple); }
+
+.hero p {
+  color: #a99bb9;
+  font-size: 16px;
+  line-height: 1.8;
+  max-width: 550px;
+}
+
+.buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 35px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn {
+  padding: 16px 26px;
+  border-radius: 9px;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 13px;
+  cursor: pointer;
+  border: 1px solid #7040a2;
+  transition: .2s;
+}
+
+.primary {
+  background: var(--purple);
+  color: white;
+  box-shadow: 0 0 25px #a855f755;
+}
+
+.secondary {
+  color: white;
+  background: #ffffff08;
+}
+
+.btn:hover { transform: translateY(-3px); }
+
+section {
+  padding: 85px 8%;
+  max-width: 1250px;
+  margin: auto;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.section-title h2 {
+  font-size: 34px;
+  font-weight: 900;
+}
+
+.section-title p {
+  color: #93859f;
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: linear-gradient(145deg, #1c142a, #100c19);
+  border: 1px solid #352343;
+  border-radius: 15px;
+  padding: 30px;
+  transition: .25s;
+}
+
+.card:hover {
+  border-color: var(--purple);
+  transform: translateY(-5px);
+}
+
+.card .emoji { font-size: 32px; }
+
+.card h3 {
+  margin: 18px 0 10px;
+  font-size: 18px;
+}
+
+.card p {
+  color: #a99bb9;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.ip-box {
+  background: linear-gradient(120deg, #28133f, #151020);
+  border: 1px solid #7541a6;
+  border-radius: 18px;
+  padding: 40px 20px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.ip-box h2 { font-size: 27px; }
+
+.ip {
+  font-size: clamp(22px, 5vw, 35px);
+  font-weight: 900;
+  color: #c58aff;
+  margin: 20px 0;
+  letter-spacing: 1px;
+}
+
+footer {
+  padding: 35px 20px;
+  text-align: center;
+  border-top: 1px solid #241532;
+  color: #766b80;
+  font-size: 12px;
+  line-height: 2;
+}
+
+footer strong { color: #b77aff; }
+
+@media(max-width:650px) {
+  nav { padding: 0 5%; }
+  nav a { margin-left: 10px; font-size: 11px; }
+  .hero { min-height: 570px; }
+  section { padding: 65px 6%; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">PURPLE<span>SMP</span></div>
+  <div>
+    <a href="#home">DOMŮ</a>
+    <a href="#features">O SERVERU</a>
+    <a href="#join">PŘIPOJIT</a>
+  </div>
+</nav>
+
+<header class="hero" id="home">
+  <div class="tag">✦ LIFESTEAL EXPERIENCE ✦</div>
+  <h1>PURPLE<span>SMP</span></h1>
+  <p>
+    Vítej na PURPLESMP! Zažij jedinečný Lifesteal svět,
+    bojuj s ostatními hráči, získávej srdce a staň se
+    legendou našeho serveru.
+  </p>
+  <div class="buttons">
+    <button class="btn primary" onclick="copyIP()">ZKOPÍROVAT IP</button>
+    <a href="#features" class="btn secondary">PROZKOUMAT SERVER</a>
+  </div>
+</header>
+
+<section id="features">
+  <div class="section-title">
+    <h2>PROČ PURPLESMP?</h2>
+    <p>Všechno, co potřebuješ pro pořádný Lifesteal zážitek.</p>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="emoji">❤️</div>
+      <h3>Lifesteal</h3>
+      <p>Získej srdce porážením ostatních hráčů. Každý souboj může změnit celý průběh hry.</p>
+    </div>
+    <div class="card">
+      <div class="emoji">⚔️</div>
+      <h3>PvP souboje</h3>
+      <p>Otestuj svoje schopnosti v soubojích a ukaž ostatním, kdo je nejlepší.</p>
+    </div>
+    <div class="card">
+      <div class="emoji">💎</div>
+      <h3>Survival svět</h3>
+      <p>Buduj základnu, sbírej suroviny a vytvoř si vlastní místo v našem světě.</p>
+    </div>
+    <div class="card">
+      <div class="emoji">👑</div>
+      <h3>Komunita</h3>
+      <p>Poznej nové hráče, vytvářej aliance a společně ovládněte PURPLESMP.</p>
+    </div>
+  </div>
+</section>
+
+<section id="join">
+  <div class="ip-box">
+    <h2>PŘIPRAVEN SE PŘIPOJIT?</h2>
+    <p style="color:#ad9bbd;margin-top:12px">
+      Zkopíruj IP adresu a připoj se k nám!
+    </p>
+    <div class="ip">Purplesmp.com</div>
+    <button class="btn primary" onclick="copyIP()">📋 ZKOPÍROVAT IP</button>
+    <p id="message" style="color:#d4aaff;margin-top:15px;font-size:13px"></p>
+  </div>
+</section>
+
+<footer>
+  <strong>PURPLESMP</strong> — Minecraft Lifesteal Server<br>
+  IP: Purplesmp.com<br>
+  © 2026 PURPLESMP. Všechna práva vyhrazena.<br>
+  <span>Minecraft je ochranná známka společnosti Mojang Studios.
+  Tento server není oficiálně spojen s Mojang Studios.</span>
+</footer>
+
+<script>
+function copyIP() {
+  navigator.clipboard.writeText("Purplesmp.com")
+    .then(() => {
+      document.getElementById("message").textContent =
+        "✓ IP adresa byla zkopírována!";
+    })
+    .catch(() => {
+      document.getElementById("message").textContent =
+        "IP adresa: Purplesmp.com";
+    });
+}
+</script>
+
+</body>
+</html>
